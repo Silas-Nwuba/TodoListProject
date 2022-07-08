@@ -31,7 +31,7 @@
                 ` <tr>
                        <td>${data}</td>
                          <td>
-                        <button onclick="deletes(${index})"><i class="fa fa-trash"style="color:red"></i> Delete</button>
+                        <button class="btn btn-danger" onclick="deletes(${index})">Delete</button>
                       </td>
                       </tr>
                       `

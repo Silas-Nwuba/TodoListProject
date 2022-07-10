@@ -14,7 +14,6 @@
 
     <title>Todo List</title>
 </head>
-
 <body>
     <div class="container">
         <br><br>
@@ -26,11 +25,12 @@
                             <h2 style="color:black;text-align: center">Movies Todo List</h2>
                             <hr><br>
                             <div class="text-input" style="display:flex">
-                                <input type="text" class="form-control" id="input-Field"
+                                <input type="text" min="50" max="50" class="form-control" id="input-Field"
                                     placeholder="Enter movie name">
                                 <button class="btn btn-info" style="outline:none;position: relative;
                                 right:10px" id="btn">Add</button>
                             </div>
+                            <p id="demo"style="color:red"></p>
                             <br>
                             <div class="table-responsive">
                                 <table class="table table-striped"  style="width: 100%" id="mytable">
@@ -53,7 +53,6 @@
             </div>
         </div>
     </div>
-   
     <br><br><br>
     <script src="main.js"></script>
     <link rel="stylesheet" href="main.css">

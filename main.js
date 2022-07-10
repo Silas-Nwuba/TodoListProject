@@ -1,6 +1,13 @@
+window.onload = function(){
+    alert("Thank for Visting My Project");
 
     const inputfield = document.getElementById("input-Field");
     const btn = document.getElementsByClassName("btn")[0];
+    if(inputfield.value.trim() !=""){
+        const errorMessage = document.getElementById("demo");
+        errorMessage.style.display = "none";
+    }
+
     btn.addEventListener("click", () => {
         if (inputfield.value.trim() != 0) {
             let localitems = JSON.parse(localStorage.getItem("localitem"));
@@ -15,7 +22,16 @@
             inputfield.value = '';
             showList();
         }
+        if(inputfield.value == "" || inputfield.value == null)
+        {
+            const errorMessage = document.getElementById("demo");
+                errorMessage.innerHTML = "Please movie name is required ";
+            
+        }
+        
     });
+
+}
     function showList() {
         let output = '';
         let taskdolists = document.querySelector("#table-body")
@@ -31,7 +47,7 @@
                 ` <tr>
                        <td>${data}</td>
                          <td>
-                        <button class="btn btn-danger" onclick="deletes(${index})">Delete</button>
+                        <button class="btn btn-danger"style="outline:none" onclick="deletes(${index})">Delete</button>
                       </td>
                       </tr>
                       `
@@ -40,23 +56,19 @@
     }
     showList();
     function deletes(index){
-    taskList.splice(index,1);
-    localStorage.setItem("localitem",JSON.stringify(taskList));
-    showList();
+       var alertbtn = confirm("Are you sure you want delete this movie?");
+      if(alertbtn == true){
+        taskList.splice(index,1);
+        localStorage.setItem("localitem",JSON.stringify(taskList));
+        showList();
+       }
+   
     }
     let clearbtn = document.getElementById("clearbtn");
     clearbtn.addEventListener("click", function () {
         localStorage.clear();
         showList();
     });
-    // function deletes(data) {
 
-    //     console.log(data);
-    //     // let localitem = JSON.parse(localStorage.getItem("localitem"));
-    //     // taskList.splice(index, 1);
-    //     // console.log(taskList);
-    //     // localStorage.setItem("localitem", JSON.stringify(taskList));
-    //     //  showList();
-    // }
- 
+
 

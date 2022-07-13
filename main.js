@@ -1,37 +1,60 @@
-window.onload = function(){
-    alert("Thank for Visting My Project");
 
     const inputfield = document.getElementById("input-Field");
     const btn = document.getElementsByClassName("btn")[0];
-    if(inputfield.value.trim() !=""){
-        const errorMessage = document.getElementById("demo");
-        errorMessage.style.display = "none";
-    }
-
-    btn.addEventListener("click", () => {
-        if (inputfield.value.trim() != 0) {
-            let localitems = JSON.parse(localStorage.getItem("localitem"));
-            if (localitems === null) {
-                taskList = [];
-            }
-            else {
-                taskList = localitems;
-            }
-            taskList.push(inputfield.value);
-            localStorage.setItem("localitem", JSON.stringify(taskList));
-            inputfield.value = '';
-            showList();
-        }
-        if(inputfield.value == "" || inputfield.value == null)
+    const errorMessage = document.getElementById("demo");
+    // var regex =/^[A-Za-z]{3}\s$/
+    function myFunction(){
+        if(inputfield.value.trim() === "" || inputfield.value.trim() === null)
         {
             const errorMessage = document.getElementById("demo");
-                errorMessage.innerHTML = "Please movie name is required ";
-            
+            errorMessage.innerHTML = "please enter the movie name";
+            errorMessage.style.fontSize = "16px";
+            errorMessage.style.display = "block";
         }
-        
-    });
-
-}
+        else if(inputfield.value.trim() != "" || inputfield.value.trim() != null){
+            const errorMessage = document.getElementById("demo");
+            errorMessage.style.display = "none";
+            inputfield.value = inputfield.value.toUpperCase()
+        }
+         btn.addEventListener("click", () => {
+            if (inputfield.value.trim() != 0)
+            {
+               let localitems = JSON.parse(localStorage.getItem("localitem"));
+               if (localitems === null) {
+                   taskList = [];
+               }
+               if(inputfield.value.length < 5 || inputfield.value.length > 50 )
+               {
+                const errorMessage = document.getElementById("demo");
+                errorMessage.style.display = "block";
+                errorMessage.innerHTML = "Movie name should be atleast between 5 and 50 character";
+               }
+               else {
+                   taskList = localitems;
+                   taskList.push(inputfield.value);
+                   localStorage.setItem("localitem", JSON.stringify(taskList));
+                   showList();  
+                   window.location.reload();
+               }
+            }
+           if(inputfield.value.trim() == "" || inputfield.value.trim() == null)
+           {
+               const errorMessage = document.getElementById("demo");
+               errorMessage.innerHTML = "Please enter the movie name";
+           }
+           else if(inputfield.value.length < 5 || inputfield.value.length > 50 )
+               {
+                const errorMessage = document.getElementById("demo");
+                errorMessage.style.display = "block";
+                errorMessage.innerHTML = "Movie name should be atleast between 5 and 50 character";
+               }
+               else{
+                const errorMessage = document.getElementById("demo");
+                errorMessage.innerHTML = "Please enter the movie name";
+               }
+        });
+    
+    }
     function showList() {
         let output = '';
         let taskdolists = document.querySelector("#table-body")
@@ -69,6 +92,3 @@ window.onload = function(){
         localStorage.clear();
         showList();
     });
-
-
-

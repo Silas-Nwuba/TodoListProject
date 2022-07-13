@@ -21,3 +21,6 @@ table th{
     vertical-align: top;
     border-top: 1px solid #ddd;
 }
+#input-Field ::placeholder{
+    font-size:18px;
+}

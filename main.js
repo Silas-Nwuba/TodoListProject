@@ -33,7 +33,6 @@ btn.addEventListener("click", () => {
             localStorage.setItem("localitem", JSON.stringify(taskList));
             showList();
             window.location.reload();
-         
     }
     
     if (inputfield.value.trim() == "" || inputfield.value.trim() == null) {

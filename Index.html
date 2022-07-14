@@ -18,7 +18,7 @@
     <div class="container">
         <br><br>
         <div class="row align-item-center vh-100">
-            <div class="col-md-5 col-md-offset-3">
+            <div class="col-md-6 col-md-offset-3">
                 <div class="card mx-auto" style="background:white;border-radius: 5px">
                     <div class="card-body" style="padding:20px">
                         <div class="task-content">
@@ -26,7 +26,7 @@
                             <hr><br>
                             <div class="text-input" style="display:flex">
                                 <input type="text"class="form-control"id="input-Field"
-                                    placeholder="Enter movie name" name="input-Field"onkeyup="myFunction(this.value)"style="height:40px" maxlength="50" minlength="5">
+                                    placeholder="Enter movie name" name="input-Field"onkeyup="myFunction(this)"style="height:50px" maxlength="50" minlength="5">
                                 <button class="btn btn-info" style="outline:none;position: relative;
                                 right:10px" id="btn">Add</button>
                                 
@@ -46,7 +46,12 @@
                                     </tbody>
                                 </table>
                             </div><br>
-                            <button class="btn btn-primary" style="outline:none" id="clearbtn">Clear All</button>
+                            <hr>
+                            <span style="display:flex;justify-content: space-between">
+                                <p id="totalMovies"></p>
+                                <button class="btn btn-primary" style="outline:none" id="clearbtn">Clear All</button>
+                            </span>
+     
                         </div>
                     </div>
                 </div>

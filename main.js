@@ -1,4 +1,3 @@
-
 const inputfield = document.getElementById("input-Field");
 const btn = document.getElementsByClassName("btn")[0];
 const errorMessage = document.getElementById("demo");
@@ -19,7 +18,6 @@ function myFunction() {
 btn.addEventListener("click", () => {
     if (inputfield.value.trim() != 0) {
         let localitems = JSON.parse(localStorage.getItem("localitem"));
-
         if (localitems === null) {
             taskList = [];
         }
@@ -34,7 +32,6 @@ btn.addEventListener("click", () => {
             showList();
             window.location.reload();
     }
-    
     if (inputfield.value.trim() == "" || inputfield.value.trim() == null) {
         const errorMessage = document.getElementById("demo");
         errorMessage.innerHTML = "Please enter the movie name";
@@ -46,7 +43,6 @@ btn.addEventListener("click", () => {
         errorMessage.innerHTML = "Movie name should be atleast between 5 and 50 character";
         return false;
     }
-  
 });
 function showList() {
     let output = '';
@@ -66,7 +62,7 @@ function showList() {
                         <button class="btn btn-danger"style="outline:none" onclick="deletes(${index})">Delete</button>
                       </td>
                       </tr>
-                      `
+               `
     });
     taskdolists.innerHTML = output;
 }
@@ -85,7 +81,6 @@ clearbtn.addEventListener("click", function () {
     localStorage.clear();
     window.location.reload();
     showList();
-     
 });
 //to put the total Movies added
 const totalMoivies = document.getElementById("totalMovies");
